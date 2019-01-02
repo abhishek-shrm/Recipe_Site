@@ -33,3 +33,11 @@ elements.searchSubmit.addEventListener('submit',(element)=>{
   controlSearch();
 });
 
+elements.searchResultPages.addEventListener('click',(e)=>{
+  const btn=e.target.closest('.btn-inline');
+  if(btn){
+    const goToPage=parseInt(btn.dataset.goto,10);
+    searchView.clearResult();
+    searchView.renderResult(state.search.recipes,goToPage);
+  }
+});
