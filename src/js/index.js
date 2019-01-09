@@ -1,6 +1,7 @@
 import Search from './models/Search';
 import * as searchView from './views/searchView';
 import {elements,renderLoader,removeLoader,elementStrings} from './views/base';
+import Recipe from './models/recipe';
 /*Global State conatining:
   Search object
   Current recipe object
@@ -8,6 +9,8 @@ import {elements,renderLoader,removeLoader,elementStrings} from './views/base';
   liked recipe object*/
 
 const state={};
+
+// Search Controller
 
 const controlSearch=async ()=>{
   //get search query from view
@@ -41,3 +44,9 @@ elements.searchResultPages.addEventListener('click',(e)=>{
     searchView.renderResult(state.search.recipes,goToPage);
   }
 });
+
+// Recipe Controller
+
+const r=new Recipe(16553);
+r.getRecipe();
+console.log(r);
